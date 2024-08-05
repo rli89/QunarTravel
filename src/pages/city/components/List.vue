@@ -12,69 +12,31 @@
       <div class="area">
         <div class="title border-topbottom">Hot Cities</div>
         <div class="button-list">
-          <div class="button-wrapper">
-            <div class="button">Auckland</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">Wellington</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">Christchurch</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">Hamilton</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">Queensland</div>
-          </div>
-          <div class="button-wrapper">
-            <div class="button">Wanaka</div>
+          <div class="button-wrapper" v-for="item of hot" :key="item.id">
+            <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
-      <div class="area">
-        <div class="title border-topbottom">A</div>
+      <div class="area" v-for="(item, key) of cities" :key="key">
+        <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">B</div>
-        <div class="item-list">
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="title border-topbottom">C</div>
-        <div class="item-list">
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
-          <div class="item">Ashburton</div>
+          <div class="item border-topbottom" v-for="innerItem of item" :key="innerItem.id">
+            {{innerItem.name}}
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
 <script>
 import Bscroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    hot: Array,
+    cities: Object
+  },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper, {
       click: true
