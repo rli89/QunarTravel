@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <input class="search-input" type="text" placeholder="Enter the city name"/>
+    <input class="search-input" type="text" placeholder="Enter The City Name"/>
   </div>
 </template>
 <script>
