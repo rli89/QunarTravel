@@ -8,7 +8,7 @@
       Enter city/scenic spot/theme</div>
     <router-link to='/city'>
       <div class="header-right">
-        City
+        {{this.$store.state.city}}
         <span class="iconfont arrow-icon">&#xe64a;</span>
       </div>
     </router-link>
