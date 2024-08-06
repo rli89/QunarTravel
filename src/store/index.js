@@ -2,9 +2,10 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
+
 export default new Vuex.Store({
   state: {
-    city: 'AKL'
+    city: localStorage.city || 'AKL'
   },
   actions: {
     changeCity (ctx, city) {
@@ -14,6 +15,7 @@ export default new Vuex.Store({
   mutations: {
     changeCity (state, city) {
       state.city = city
+      localStorage.city = city
     }
   }
 })
