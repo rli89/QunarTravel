@@ -1,21 +1,49 @@
 <template>
-  <div class="banner">
-    <img class="banner-img" src="https://qimgs.qunarzz.com/piao_qsight_provider_piao_qsight_web/CggYGVbNcPKABeNMABAVWGd9g7k807_C_900_504_Q90_Mtg_7.jpg_350x240_b85d103e.jpg" />
-    <div class="banner-info">
-      <div class="banner-tittle">
-        Auckland Musemum
-      </div>
-      <div class="banner-number">
-        <span class="iconfont banner-icon">&#xe692;</span>
-        4
-      </div>
+  <div>
+    <div class="banner"  @click="handleBannerClick">
+        <img class="banner-img" src="https://qimgs.qunarzz.com/piao_qsight_provider_piao_qsight_web/CggYGVbNcPKABeNMABAVWGd9g7k807_C_900_504_Q90_Mtg_7.jpg_350x240_b85d103e.jpg" />
+        <div class="banner-info">
+        <div class="banner-tittle">
+            Auckland Musemum
+        </div>
+        <div class="banner-number">
+            <span class="iconfont banner-icon">&#xe692;</span>
+            4
+        </div>
+        </div>
     </div>
+    <common-gallary :imgs="imgs"
+        v-show="showGallary"
+        @close="handleGallaryClose"></common-gallary>
   </div>
 </template>
 
 <script>
+import CommonGallary from 'common/gallary/Gallary'
 export default {
-  name: 'DetailBanner'
+  name: 'DetailBanner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
+  },
+  data () {
+    return {
+      imgs: ['https://qimgs.qunarzz.com/piao_qsight_provider_piao_qsight_web/10041f000001gp9gr0BD1_C_900_504.jpg_600x330_a74ae8b8.jpg', 'https://qimgs.qunarzz.com/piao_qsight_provider_piao_qsight_web/CggYGVbNcPKABeNMABAVWGd9g7k807_C_900_504_Q90_Mtg_7.jpg_350x240_b85d103e.jpg'],
+      showGallary: false
+    }
+  },
+  methods: {
+    handleBannerClick () {
+      this.showGallary = true
+    },
+    handleGallaryClose () {
+      this.showGallary = false
+    }
+  },
+  components: {
+    CommonGallary
+  }
 }
 </script>
 
