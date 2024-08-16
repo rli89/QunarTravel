@@ -1,18 +1,18 @@
 <template>
   <div>
     <div class="banner"  @click="handleBannerClick">
-        <img class="banner-img" src="https://qimgs.qunarzz.com/piao_qsight_provider_piao_qsight_web/CggYGVbNcPKABeNMABAVWGd9g7k807_C_900_504_Q90_Mtg_7.jpg_350x240_b85d103e.jpg" />
+        <img class="banner-img" :src="bannerImg"/>
         <div class="banner-info">
         <div class="banner-tittle">
-            Auckland Musemum
+            {{this.sightName}}
         </div>
         <div class="banner-number">
             <span class="iconfont banner-icon">&#xe692;</span>
-            4
+            {{this.bannerImgs.length}}
         </div>
         </div>
     </div>
-    <common-gallary :imgs="imgs"
+    <common-gallary :imgs="bannerImgs"
         v-show="showGallary"
         @close="handleGallaryClose"></common-gallary>
   </div>
