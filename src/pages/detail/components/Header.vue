@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link tag="div" to="/" class="header-abs"
+    <router-link to="/" class="header-abs"
                  v-show="showAbs">
       <div class="iconfont hearder-abs-back">&#xe624;</div>
     </router-link>
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     handleScroll () {
-      const top = document.documentElement.scrollTop
+      const top = document.documentElement.scrollTop || document.body.scrollTop
       if (top > 60) {
         let opacity = top / 140
         opacity = opacity > 1 ? 1 : opacity
@@ -38,8 +38,11 @@ export default {
       }
     }
   },
-  activated () {
+  mounted () {
     window.addEventListener('scroll', this.handleScroll)
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
