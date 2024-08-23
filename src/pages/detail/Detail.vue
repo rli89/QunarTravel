@@ -7,6 +7,7 @@
     ></detail-banner>
     <detail-header></detail-header>
     <div class="content">
+      <detail-location></detail-location>
       <detail-list :list="list"></detail-list>
     </div>
   </div>
@@ -16,12 +17,14 @@
 import DetailBanner from './components/Banner'
 import DetailHeader from './components/Header'
 import DetailList from './components/List'
+import DetailLocation from './components/Location'
 import axios from 'axios'
 export default {
   name: 'Detail',
   components: {
     DetailBanner,
     DetailHeader,
+    DetailLocation,
     DetailList
   },
   data () {
