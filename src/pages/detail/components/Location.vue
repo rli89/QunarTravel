@@ -3,7 +3,7 @@
   <div class="location">
     <div class="one border-bottom">
         <span class="location-icon" ></span>
-        辽宁省大连市沙河口区中山路608-6-8号(星海 ...
+        辽宁省大连市沙河口区中山路608-6-8号星海 ...
     </div>
     <div class="two border-bottom">
         <span class="time-icon"></span>
